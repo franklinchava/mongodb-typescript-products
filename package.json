@@ -7,16 +7,8 @@
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./app/app.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uayeb25/mongodb-typescript-products.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/uayeb25/mongodb-typescript-products/issues"
-  },
-  "homepage": "https://github.com/uayeb25/mongodb-typescript-products#readme",
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"

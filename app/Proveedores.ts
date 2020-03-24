@@ -2,39 +2,43 @@ import mongoose = require("mongoose");
 import {connectMongoDB} from "./helpers"
 
 export interface IProveedor extends mongoose.Document { 
-    name: string;
+    nombre: string;
     direccion: string;
-    tipo: string;
+    correo: string;
+    telefono: number;
+
 }
 
 const ProveedorSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    tipo: {type: String, required: true},
-    direccion: { type: String, required: false }
+    nombre: { type: String, required: true },
+    correo: {type: String, required: true},
+    direccion: { type: String, required: true },
+    telefono: {type: Number, required: true},
 });
 
 export const Proveedor = mongoose.model<IProveedor>("Proveedor", ProveedorSchema);
 
-export const CreateProveedor = async function(name: string, direccion: string, tipo: string){
+export const CreateProveedor = async function(nom: string, direccion: string, correo: string, telefono: number){
     await connectMongoDB;
 
-    const newOne = new Proveedor();
-    newOne.name = name;
-    newOne.direccion = direccion;
-    newOne.tipo = tipo;
+    const newProveedor = new Proveedor();
+    newProveedor.nombre = nom;
+    newProveedor.direccion = direccion;
+    newProveedor.correo = correo;
+    newProveedor.telefono = telefono;
 
-    newOne.save( (err:any) =>{
+    newProveedor.save( (err:any) =>{
         if(err){
             console.log(err.message);
         }else{
-            console.log(newOne);
+            console.log(newProveedor);
         }
     } );
 }
 
 export function getProveedor(_name: string):Promise<any>{
     return new Promise<any>( resolve => {
-        Proveedor.findOne({ name: _name}, (err:any,data:any) => {
+        Proveedor.findOne({ nombre: _name}, (err:any,data:any) => {
             if(err){
                 resolve({});
             }else{

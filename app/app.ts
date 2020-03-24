@@ -1,8 +1,9 @@
 import {CreateProveedor} from "./Proveedores"
 import {CreateProduct} from "./products"
 
-//CreateProveedor("A","Direccion de A","1")
+CreateProveedor("jorge","hato de enmedio","jorge@nada",22500673);
 
-CreateProduct("A","Mi super producto",20,30,100);
+CreateProduct("jorge","teclado","teclado gamer pro",200,5);
+
 
 
